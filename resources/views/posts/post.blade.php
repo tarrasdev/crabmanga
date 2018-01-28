@@ -1,6 +1,9 @@
 <div class="col-md-4">
   <div class="card mb-4 box-shadow">
-    <img src="img/dedede.jpg" class='img-fluid'>
+
+      @if($post->images!=null)
+        <img src="{{$post->images->title}}" class='img-fluid'>
+      @endif
       <div class="card-body">
         <p class="card-text">{{$post->title}}</p>
           <div class="d-flex justify-content-between align-items-center">

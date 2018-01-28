@@ -9,14 +9,31 @@ use App\Image;
 
 class ImagesController extends Controller
 {
-    public function store()
+    // public function store(Post $post)
+    // {
+
+    //     $post->addImage(request('title'));
+    //     return back();
+    // }
+
+    public function upload(Request $request)
     {
-        $this->validate(request(),[
-            'image'=>'required'
+    	$this->validate($request, [
+            'title' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        Image::create(request(['image']));
+        //generate title name and store
+        $input['title'] = time().'.'.$request->title->getClientOriginalExtension();
+        //move image to specific gallery
+        $request->title->move(public_path('images'), $input['title']);
 
-        return redirect('/');
+        $input['post_id'] = '1';
+        
+        Image::create($input);
+
+    	return back()
+    		->with('success','Image Uploaded successfully.');
     }
+
+    
 }

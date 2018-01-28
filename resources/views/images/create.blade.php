@@ -2,26 +2,12 @@
 
 @section('content')
 
-<div class='col-sm 8 blog-main'>
-
-    <h1>Upload an image</h1>
-
-    <hr>
-
-    <form action="/posts/{{$post->id}}" method='POST'>
-    {{csrf_field()}}
+    <form action="/images/create" action='POST' enctype='multipart/form-data'>
     
-    <div class='form-group'>
-        <label for="title">Image</label>
-        <input type="text" class='form-control' id='title' name='title'>
-    </div>
-
-    <div class='form-group'>
-        <button type='submit' class='btn btn-primary'>Upload</button>
-    </div>
-
+        <label >Select image:</label>
+        <input type="file" name='file' id='file'>
+        <input type="submit" value='Upload' name='Submit'>
+    
     </form>
-
-</div>
 
 @endsection

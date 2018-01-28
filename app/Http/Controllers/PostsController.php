@@ -54,7 +54,18 @@ class PostsController extends Controller
             'body'=>'required'
         ]);
         
-        Post::where('id', $post->id)->update(request(['title', 'body']));
+        Post::find($post->id)->update(request(['title', 'body']));
         return redirect('/');
+    }
+
+    public function images()
+    {
+        return view('images.create');
+    }
+
+    public function imagesUpload()
+    {
+        
+        return view('images.create');
     }
 }
