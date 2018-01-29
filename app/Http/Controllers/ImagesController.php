@@ -9,31 +9,27 @@ use App\Image;
 
 class ImagesController extends Controller
 {
-    // public function store(Post $post)
-    // {
 
-    //     $post->addImage(request('title'));
-    //     return back();
-    // }
-
-    public function upload(Request $request)
+    public function upload(Post $post)
     {
-    	$this->validate($request, [
+        $this->validate(request(), [
             'title' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        //generate title name and store
-        $input['title'] = time().'.'.$request->title->getClientOriginalExtension();
-        //move image to specific gallery
-        $request->title->move(public_path('images'), $input['title']);
+        //give a name for an image
+        $input = time().'.'.request('title')->getClientOriginalExtension();
+        //move image file to the public folder
+        request('title')->move(public_path('images'), $input);
+        //make a variable with a path to the image
+        $path = '/images/'.$input;
 
-        $input['post_id'] = '1';
+        //inser the path and the post title to DB
         
-        Image::create($input);
+        Image::create([
+            'title' => $path,
+            'post_id' => $post->id
+        ]);
 
-    	return back()
-    		->with('success','Image Uploaded successfully.');
+        return back();
     }
-
-    
 }

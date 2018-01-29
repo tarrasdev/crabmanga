@@ -57,15 +57,4 @@ class PostsController extends Controller
         Post::find($post->id)->update(request(['title', 'body']));
         return redirect('/');
     }
-
-    public function images()
-    {
-        return view('images.create');
-    }
-
-    public function imagesUpload()
-    {
-        
-        return view('images.create');
-    }
 }

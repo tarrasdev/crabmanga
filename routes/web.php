@@ -17,9 +17,6 @@ Route::patch('/posts/{post}', 'PostsController@update');
 // Images
 
 Route::post('/posts/{post}/images', 'ImagesController@upload');
-Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');
 
-Route::get('/images/create', 'PostsController@images');
-Route::post('/images/create', 'PostsController@imagesUpload');
 
 
