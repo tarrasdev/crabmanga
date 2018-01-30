@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Image extends Model
+class Gallery extends Model
 {
     public function post()
     {

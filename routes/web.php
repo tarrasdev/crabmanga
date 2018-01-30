@@ -1,5 +1,7 @@
 <?php
 
+
+//Posts
 Route::get('/', 'PostsController@index');
 
 Route::get('/posts/create', 'PostsController@create');
@@ -14,9 +16,10 @@ Route::get('/posts/{post}/edit', 'PostsController@edit');
 
 Route::patch('/posts/{post}', 'PostsController@update');
 
-// Images
+//Gallery
+Route::get('/posts/{post}/gallery/create', 'GalleriesController@create');
+Route::post('/posts/{post}/gallery/upload', 'GalleriesController@upload');
 
-Route::post('/posts/{post}/images', 'ImagesController@upload');
 
 
 

@@ -1,8 +1,8 @@
 <div class="col-md-4">
   <div class="card mb-4 box-shadow">
 
-      @if($post->images!=null)
-        <img src="{{$post->images->title}}" class='img-fluid'>
+      @if($post->cover!=null)
+        <img src="{{$post->cover}}" class='img-fluid'>
       @endif
       <div class="card-body">
         <p class="card-text">{{$post->title}}</p>

@@ -8,6 +8,18 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
+    public function transformImage($request)
+    {
+        $input = time().'.'.$request->getClientOriginalExtension();
+        //move image file to public folder
+        $request->move(public_path('images'), $input);
+        //make a variable with a path to the image
+        $path = '/images/'.$input;
+
+        return $path;
+    }
+
     public function index()
     {
         $posts = Post::latest()->get();
@@ -28,10 +40,17 @@ class PostsController extends Controller
     {
         $this->validate(request(),[
             'title'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'cover' => 'required'
         ]);
 
-        Post::create(request(['title', 'body']));
+        $imagePath = Self::transformImage(request('cover'));
+
+        Post::create([
+            'title' => request('title'),
+            'body' => request('body'),
+            'cover' => $imagePath
+        ]);
 
         return redirect('/');
     }
@@ -51,10 +70,18 @@ class PostsController extends Controller
     {
         $this->validate(request(),[
             'title'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'cover' => 'required'
         ]);
-        
-        Post::find($post->id)->update(request(['title', 'body']));
+
+        $imagePath = Self::transformImage(request('cover'));
+      
+        Post::find($post->id)->update([
+            'title' => request('title'),
+            'body' => request('body'),
+            'cover' => $imagePath
+        ]);
+       
         return redirect('/');
-    }
+   }
 }
