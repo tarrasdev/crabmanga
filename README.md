@@ -1,6 +1,6 @@
 # CrabManga
 
-This is a simple application build on Laravel Framework 5.5 to upload and view manga or comics.
+This is a simple application build with Laravel Framework 5.5 to upload and view manga or comics.
 
 Work in progress.
 
