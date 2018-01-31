@@ -1,12 +1,17 @@
 CrabManga
 
-Что работает:
-1.КРУД.
-2.Загрузка превью-изображения к посту с привязкой по айди.
+This is a simple application build on Laravel Framework 5.5 to upload and view manga or comics.
 
-Что не работает:
-1. Юзеры.
-2. Аутентификация.
-3. Всплывающие окна, алерты и тд.
-4. Теги.
-5. Загрузка и отображение галереи.
+Work in progress.
+
+Available functionality:
+
+1. Create a post with title, description and image cover.
+2. Upload images, linked to the post in the database.
+
+To run:
+1. Run migration: php artisan migrate;
+2. Run application: php artisan serve --port=8080 (or any other port).
+
+License
+The Laravel framework is open-sourced software licensed under the MIT license.
