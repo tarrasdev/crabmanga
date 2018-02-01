@@ -35,6 +35,11 @@ class GalleriesController extends Controller
             'post_id' => $post->id
         ]);
 
-        return back();
+        return redirect('/');
+    }
+
+    public function show(Post $post)
+    {
+        return view('gallery.show', compact('post'));        
     }
 }

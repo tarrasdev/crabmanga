@@ -4,8 +4,8 @@ namespace App;
 
 class Post extends Model
 {
-    public function images()
+    public function galleries()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Gallery::class);
     }
 }

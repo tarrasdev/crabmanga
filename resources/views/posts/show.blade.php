@@ -35,6 +35,13 @@
 
                 <a class='btn btn-outline-dark' href="/posts/{{$post->id}}/gallery/create">Upload</a>
             </div>
+
+            <div>
+                <a href="/posts/{{$post->id}}/gallery/show" class='btn btn-outline-dark'>Read</a>           
+            </div>
+
+
+
         </div>
     </div>
 
