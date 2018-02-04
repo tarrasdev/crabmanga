@@ -3,6 +3,7 @@
 /public/storage
 /public/images
 /public/img
+/public/crab.png
 /storage/*.key
 /vendor
 /.idea

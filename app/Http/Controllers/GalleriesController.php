@@ -18,6 +18,10 @@ class GalleriesController extends Controller
     public function upload(Post $post)
     {
   
+        $this->validate(request(),[
+            'image'=>'required|image|mimes:png|max:2048'
+        ]);
+
         foreach(request('image') as $key){
             $name = uniqid().'.'.$key->getClientOriginalExtension();
             $key->move(public_path('images'), $name);

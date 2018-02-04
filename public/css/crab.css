@@ -36,13 +36,27 @@
     margin-bottom: .25rem;
   }
   
-  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(50, 136, 151, 0.05); }
 
  .crab {
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
 }
 
 .thumbimage {
   height: ;
+}
+
+.buttons {
+  margin: 2px;
+}
+
+.images {
+  width: 85%;
+  height: 85%;
+}
+
+.image-show {
+  width: 75%;
+  height: auto;
 }
