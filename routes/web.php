@@ -19,6 +19,7 @@ Route::patch('/posts/{post}', 'PostsController@update');
 //Gallery
 Route::get('/posts/{post}/gallery/create', 'GalleriesController@create');
 Route::post('/posts/{post}/gallery/upload', 'GalleriesController@upload');
+Route::get('/posts/{post}/gallery/show', 'GalleriesController@show');
 
 
 

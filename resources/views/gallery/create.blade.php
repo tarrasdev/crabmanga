@@ -11,7 +11,7 @@
         
             <div class='form-group'>
             
-                <input type="file" name='image' class='form-control' multiple>
+                <input type="file" name='image[]' class='form-control' multiple>
             
             </div>
 
