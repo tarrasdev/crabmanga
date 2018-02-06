@@ -35,7 +35,7 @@
 
                 <p>{{$post->body}}</p>
 
-                <a href="/posts/{{$post->id}}/gallery/show" class='btn btn-outline-info'>Read</a>   
+                <a href="/posts/{{$post->id}}/gallery/reader" class='btn btn-outline-info'>Read</a>   
 
             </div>
 

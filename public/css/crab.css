@@ -56,7 +56,9 @@
   height: 85%;
 }
 
-.image-show {
-  width: 75%;
-  height: auto;
+.reader-mode {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
