@@ -56,9 +56,16 @@
   height: 85%;
 }
 
-.reader-mode {
+/* .reader-mode {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+.reader-mode {
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
