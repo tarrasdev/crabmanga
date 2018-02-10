@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Post;
 use App\Gallery;
@@ -17,9 +18,9 @@ class GalleriesController extends Controller
 
     public function upload(Post $post)
     {
-  
-        $this->validate(request(),[
-            'image'=>'required|image|mimes:png|max:2048'
+        
+        $validator = Validator::make(request('image'), [
+        'image.' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         foreach(request('image') as $key){

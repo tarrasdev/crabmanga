@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if(count($post->galleries)>1)
+@if(count($post->galleries)>=1)
             @foreach($post->galleries as $image)
                     <img src="{{$image->image}}" class='pages reader-mode'>
             @endforeach
