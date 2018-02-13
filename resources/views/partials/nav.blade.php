@@ -9,6 +9,14 @@
         <div>
           <h3>CrabManga</h3>
         </div>
+        </a>
+
+          @if(Auth::check())
+
+          <h4 class='navbar-brand ml-auto'>{{Auth::user()->name}}</h4>
+
+          @endif
+
       <a href="/posts/create" class='btn btn-primary btn-lg'>Create</a>
       </a>
     </div>
