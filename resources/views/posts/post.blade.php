@@ -5,7 +5,7 @@
         <img src="{{$post->cover}}" class='img-fluid images'>
       @endif
       <div class="card-body">
-        <h4 class="card-text">{{$post->title}}</h4>
+         <h4 class="card-text">{{$post->title}}</h4>
           <div class="d-flex justify-content-between align-items-center">
             <div class="row">
 

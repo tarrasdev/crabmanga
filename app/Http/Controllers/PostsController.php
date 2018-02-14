@@ -9,6 +9,11 @@ use App\Post;
 class PostsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function transformImage($request)
     {
         $input = time().'.'.$request->getClientOriginalExtension();
@@ -49,7 +54,8 @@ class PostsController extends Controller
         Post::create([
             'title' => request('title'),
             'body' => request('body'),
-            'cover' => $imagePath
+            'cover' => $imagePath,
+            'user_id' => auth()->id()
         ]);
 
         return redirect('/');

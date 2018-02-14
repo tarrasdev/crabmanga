@@ -1,7 +1,7 @@
 <header>
   <div class="navbar navbar-dark bg-dark box-shadow">
-    <div class="container d-flex justify-content-between">
-      <a href="/" class="navbar-brand d-flex align-items-center">
+    <div class="container">
+      <a href="/" class="navbar-brand d-flex">
         <div>
           <img src="/crab.png" class='crab'>  
         </div>
@@ -11,13 +11,21 @@
         </div>
         </a>
 
-          @if(Auth::check())
-
-          <h4 class='navbar-brand ml-auto'>{{Auth::user()->name}}</h4>
-
+          @if(!Auth::check())
+          <ul class="nav justify-content-end">
+            <a href="/login" class='navbar-brand ml-auto'>Login</a>
+            <a href="/register" class='navbar-brand ml-auto'>Register</a>
+          </ul>
           @endif
 
-      <a href="/posts/create" class='btn btn-primary btn-lg'>Create</a>
+          @if(Auth::check())
+          <ul class="nav justify-content-end">
+            <h4 class='navbar-brand ml-auto'>{{Auth::user()->name}}</h4>
+            <a href="/logout" class='navbar-brand ml-auto'>Logout</a>
+            <a href="/posts/create" class='btn btn-primary btn-lg'>Create</a>
+          </ul>
+          @endif
+
       </a>
     </div>
   </div>

@@ -31,6 +31,7 @@
             </div>
 
             <div class='col-7'>
+                <p>Uploaded by {{$post->user->name}}</p>
                 <h2>{{$post->title}}</h2>
 
                 <p>{{$post->body}}</p>

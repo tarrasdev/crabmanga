@@ -10,6 +10,10 @@ use App\Gallery;
 
 class GalleriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'show']);
+    }
 
     public function create(Post $post)
     {
@@ -30,7 +34,8 @@ class GalleriesController extends Controller
    
             Gallery::create([
                 'image' => $path,
-                'post_id' => $post->id
+                'post_id' => $post->id,
+                'user_id' => auth()->id()
             ]);
         }
 
