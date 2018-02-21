@@ -17,6 +17,9 @@ class CreateGalleriesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('post_id');
+            $table->integer('volume');
+            $table->integer('chapter_number');
+            $table->string('chapter_name');
             $table->string('image');
             $table->timestamps();
         });

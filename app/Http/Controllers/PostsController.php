@@ -33,7 +33,7 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+       return view('posts.show', compact('post'));
     }
 
     public function create()
@@ -63,9 +63,10 @@ class PostsController extends Controller
 
     public function destroy($id)
     {
-       $post = Post::find($id);
-       $post->galleries()->delete();
-       $post->delete();
+         
+        $post = Post::find($id);
+        $post->galleries()->delete();
+        $post->delete();
 
        return redirect('/');
     }

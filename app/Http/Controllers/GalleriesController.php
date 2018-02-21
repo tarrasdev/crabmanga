@@ -27,6 +27,12 @@ class GalleriesController extends Controller
         'image.' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
+        $this->validate(request(),[
+            'volume'=>'required',
+            'chapter_number'=>'required',
+            'chapter_name' => 'required'
+        ]);
+
         foreach(request('image') as $key){
             $name = uniqid().'.'.$key->getClientOriginalExtension();
             $key->move(public_path('images'), $name);
@@ -35,6 +41,9 @@ class GalleriesController extends Controller
             Gallery::create([
                 'image' => $path,
                 'post_id' => $post->id,
+                'volume' => request('volume'),
+                'chapter_number' => request('chapter_number'),
+                'chapter_name' => request('chapter_name'),
                 'user_id' => auth()->id()
             ]);
         }

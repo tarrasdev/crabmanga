@@ -20,7 +20,7 @@
 
           @if(Auth::check())
           <ul class="nav justify-content-end">
-            <h4 class='navbar-brand ml-auto'>{{Auth::user()->name}}</h4>
+            <h4 class='navbar-brand ml-auto'>Hello, {{Auth::user()->name}}!</h4>
             <a href="/logout" class='navbar-brand ml-auto'>Logout</a>
             <a href="/posts/create" class='btn btn-primary btn-lg'>Create</a>
           </ul>
