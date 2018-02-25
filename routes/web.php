@@ -1,9 +1,11 @@
 <?php
+use App\Post;
 
 //Posts
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{post}/delete', 'PostsController@delete');
 Route::post('/posts', 'PostsController@store');
 Route::delete('/posts/{post}', 'PostsController@destroy');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
