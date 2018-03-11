@@ -2,70 +2,63 @@
     --jumbotron-padding-y: 3rem;
   }
   
-  .jumbotron {
-    padding-top: var(--jumbotron-padding-y);
-    padding-bottom: var(--jumbotron-padding-y);
+.jumbotron {
+    padding-top: 25px;
+    padding-bottom: 25px;
     margin-bottom: 0;
     background-color: #fff;
   }
-  @media (min-width: 768px) {
-    .jumbotron {
-      padding-top: calc(var(--jumbotron-padding-y) * 2);
-      padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-    }
-  }
   
-  .jumbotron p:last-child {
+.jumbotron p:last-child {
     margin-bottom: 0;
   }
   
-  .jumbotron-heading {
+.jumbotron-heading {
     font-weight: 300;
   }
   
-  .jumbotron .container {
+.jumbotron .container {
     max-width: 40rem;
   }
   
-  footer {
+footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
   
-  footer p {
+footer p {
     margin-bottom: .25rem;
   }
   
-  .box-shadow { box-shadow: 0 .25rem .75rem rgba(50, 136, 151, 0.05); }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(50, 136, 151, 0.05); }
 
- .crab {
+.crab-icon {
   height: 35px;
   width: 35px;
-}
-
-.thumbimage {
-  height: ;
 }
 
 .buttons {
   margin: 2px;
 }
 
-.images {
-  width: 85%;
-  height: 85%;
+.cover-image {
+  width: auto;
+  height: 250px;
 }
-
-/* .reader-mode {
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .reader-mode {
   margin-left: auto;
   margin-right: auto;
   max-height: 100%;
   max-width: 100%;
+}
+
+.posts {
+  max-width: 200px;
+  max-height: 10px;
+}
+
+.navbar {
+  padding-left: 5%;
+  padding-right: 5%;
 }

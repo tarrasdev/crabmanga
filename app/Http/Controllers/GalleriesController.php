@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Post;
 use App\Gallery;
+use App\Chapter;
 use Illuminate\Support\Facades\Gate;
 
 class GalleriesController extends Controller
@@ -15,37 +16,29 @@ class GalleriesController extends Controller
         $this->middleware('auth', ['except' => 'show']);
     }
 
-    public function create(Post $post)
+    public function create(Post $post, Chapter $chapter)
     {
         if (Gate::allows('update-post', $post)){
-            return view('gallery.create', compact('post'));
+            return view('gallery.create', compact('post', 'chapter'));
         } else {
             return view('errors.403');
         }
     }
 
-    public function upload(Post $post)
+    public function upload(Post $post, Chapter $chapter)
     {
         if (Gate::allows('update-post', $post)){
             $validator = Validator::make(request('image'), [
                 'image.' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
-        $this->validate(request(),[
-            'volume'=>'required',
-            'chapter_number'=>'required',
-            'chapter_name' => 'required'
-        ]);
         foreach(request('image') as $key){
             $name = uniqid().'.'.$key->getClientOriginalExtension();
             $key->move(public_path('images'), $name);
             $path = '/images/'.$name;
-   
             Gallery::create([
                 'image' => $path,
                 'post_id' => $post->id,
-                'volume' => request('volume'),
-                'chapter_number' => request('chapter_number'),
-                'chapter_name' => request('chapter_name'),
+                'chapter_id' => $chapter->id,
                 'user_id' => auth()->id()
             ]);
         }
@@ -53,9 +46,5 @@ class GalleriesController extends Controller
         } else {
             return view('errors.403');
         }
-    }
-    public function show(Post $post)
-    {
-        return view('gallery.show', compact('post'));        
     }
 }

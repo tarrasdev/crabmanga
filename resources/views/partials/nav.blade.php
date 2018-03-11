@@ -1,32 +1,34 @@
 <header>
-  <div class="navbar navbar-dark bg-dark box-shadow">
-    <div class="container">
-      <a href="/" class="navbar-brand d-flex">
-        <div>
-          <img src="/crab.png" class='crab'>  
-        </div>
-        
-        <div>
-          <h3>CrabManga</h3>
-        </div>
-        </a>
-
-          @if(!Auth::check())
-          <ul class="nav justify-content-end">
-            <a href="/login" class='navbar-brand ml-auto'>Login</a>
-            <a href="/register" class='navbar-brand ml-auto'>Register</a>
-          </ul>
-          @endif
-
-          @if(Auth::check())
-          <ul class="nav justify-content-end">
-            <h4 class='navbar-brand ml-auto'>Hello, {{Auth::user()->name}}!</h4>
-            <a href="/logout" class='navbar-brand ml-auto'>Logout</a>
-            <a href="/posts/create" class='btn btn-primary btn-lg'>Create</a>
-          </ul>
-          @endif
-
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <img src="/crab.png" class='navbar-brand crab-icon'>
+      <a class="navbar-brand" href="/">CrabManga</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        @if(!Auth::check())
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/register">Register<span class="sr-only">(current)</span></a>
+        </li>
+        @endif
+        @if(Auth::check())
+        <li class='nav-item active'>
+          <a class='nav-link'>Hello, {{Auth::user()->name}}!</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/posts/create">Create a new gallery<span class="sr-only">(current)</span></a>
+        </li>
+        @endif
+      </ul>
     </div>
-  </div>
+  </nav>
 </header>

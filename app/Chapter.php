@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Gallery extends Model
+class Chapter extends Model
 {
     public function user()
     {
@@ -12,8 +12,8 @@ class Gallery extends Model
     {
         return $this->belongsTo(Post::class);
     }
-    public function chapter()
+    public function gallery()
     {
-        return $this->belongsTo(Chapter::class);
+        return $this->hasMany(Gallery::class);
     }
 }
