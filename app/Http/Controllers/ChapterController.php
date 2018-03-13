@@ -39,7 +39,7 @@ class ChapterController extends Controller
             return view('errors.403');
         }
     }
-    public function show(Post $post, Chapter $chapter)
+    public function edit(Post $post, Chapter $chapter)
     {
         return view('chapter.show', compact('post','chapter'));
     }

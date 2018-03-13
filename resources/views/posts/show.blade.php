@@ -26,10 +26,19 @@
     </div>
 <hr>
 <div class='row'>
-    <div class='col-md-5'>
+    <div class='col-md-8'>
         @foreach($post->chapter as $chapter)
             <div class='container'>
-                <a class=''href="/posts/{{$post->id}}/chapter/{{$chapter->id}}/show">Volume {{$chapter->volume}} Chapter {{$chapter->chapter_number}} "{{$chapter->chapter_name}}"  </a>
+                <div class='row'>
+                <div class='col-6'>
+                    <a class=''href="/posts/{{$post->id}}/chapter/{{$chapter->id}}/read">Volume {{$chapter->volume}} Chapter {{$chapter->chapter_number}} "{{$chapter->chapter_name}}"  </a>
+                </div>
+                <div class='col-6'>
+                @if(Gate::allows('update-post', $post))
+                    <a class='badge badge-info' href="/posts/{{$post->id}}/chapter/{{$chapter->id}}/edit">Edit</a>
+                @endif
+                </div>
+                </div>
             </div>
         @endforeach
     </div>

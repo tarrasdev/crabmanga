@@ -64,7 +64,8 @@ class PostsController extends Controller
     {
         if (Gate::allows('update-post', $post)){
             $post = Post::find($post->id);
-            $post->galleries()->delete();
+            $post->gallery()->delete();
+            $post->chapter()->delete();
             $post->delete();
             return redirect('/');
         } else {

@@ -12,7 +12,7 @@ Route::patch('/posts/{post}', 'PostsController@update');
 //Chapter
 Route::get('/posts/{post}/chapter/create', 'ChapterController@create');
 Route::post('/posts/{post}/chapter/store', 'ChapterController@store');
-Route::get('/posts/{post}/chapter/{chapter}/show', 'ChapterController@show');
+Route::get('/posts/{post}/chapter/{chapter}/edit', 'ChapterController@edit');
 Route::delete('/posts/{post}/chapter/{chapter}/destroy', 'ChapterController@destroy');
 Route::get('/posts/{post}/chapter/{chapter}/read', 'ChapterController@read');
 // //Gallery
